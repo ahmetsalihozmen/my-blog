@@ -5,13 +5,16 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start -p  $PORT"
   },
   "dependencies": {
+    "isomorphic-unfetch": "^3.0.0",
     "next": "9.5.0",
+    "raw-loader": "^4.0.1",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-icons-kit": "^1.3.1",
+    "react-markdown": "^4.3.1",
     "tachyons": "^4.12.0"
   }
 }
