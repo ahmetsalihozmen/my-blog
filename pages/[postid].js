@@ -8,7 +8,7 @@ const Blogpost = ({post}) => {
   return (
     <div className='tc'>
 
-      <h1 className='hero-title'><a href='http://www.localhost:3000'>Ahmet Salih Özmen</a></h1>
+      <h1 className='hero-title'><a href='https://ahmetozmen.herokuapp.com'>Ahmet Salih Özmen</a></h1>
       <Icon className='ma2' size={32} icon={socialLinkedin}/>
       <a  href="https://www.linkedin.com/in/ahmet-salih-özmen-30b466169" target="_blank">LinkedIn</a>
       <Icon className='ma2' size={32} icon={socialGithub}/>
