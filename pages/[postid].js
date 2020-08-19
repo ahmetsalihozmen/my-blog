@@ -2,7 +2,8 @@ import React from 'react';
 import fetch from 'isomorphic-unfetch'
 import {Icon} from'react-icons-kit'
 import ReactMarkdown from 'react-markdown'
-import {socialGithub,socialLinkedin,socialTwitter} from "react-icons-kit/ionicons"
+import Link from 'next/link'
+import {socialGithub,socialLinkedin,socialTwitter,iosPerson} from "react-icons-kit/ionicons"
 
 const Blogpost = ({post}) => {
   return (
