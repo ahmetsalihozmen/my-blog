@@ -7,8 +7,12 @@ import {socialGithub,socialLinkedin,socialTwitter} from "react-icons-kit/ionicon
 const Blogpost = ({post}) => {
   return (
     <div className='tc'>
-
+      <title>{post.title}</title>
       <h1 className='hero-title'><a href='https://ahmetozmen.herokuapp.com'>Ahmet Salih Özmen</a></h1>
+      <Icon className='ma2' size={32} icon={iosPerson}/>
+      <Link href='about'>
+                <a>About me</a>
+      </Link>
       <Icon className='ma2' size={32} icon={socialLinkedin}/>
       <a  href="https://www.linkedin.com/in/ahmet-salih-özmen-30b466169" target="_blank">LinkedIn</a>
       <Icon className='ma2' size={32} icon={socialGithub}/>
@@ -16,7 +20,7 @@ const Blogpost = ({post}) => {
       <Icon className='ma2' size={32} icon={socialTwitter}/>
       <a  href="https://twitter.com/vokulfenmah" target="_blank">Twitter</a>
       <div className='post'>
-             <h1 className="blog-title">
+             <h1 className="post-title">
               {post.title}
             </h1>
             <div className='post-text'>
@@ -29,8 +33,13 @@ const Blogpost = ({post}) => {
       .blog-title{
         margin-bottom:10%;
       }
+      a:hover , a{
+        color: black;
+        text-decoration:none;
+      }
       .hero-title{
         font-size:48px;
+        margin: 30px;
       }
       .post{
         max-width:650px;
@@ -44,6 +53,10 @@ const Blogpost = ({post}) => {
       .post-text{
         text-align:left;
       }
+      .post-title{
+        margin:30px;
+      }
+   
       `}</style>
     </div>
   )
