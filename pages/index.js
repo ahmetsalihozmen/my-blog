@@ -1,10 +1,34 @@
-import React from 'react'
+import React, { Component } from 'react'
 import {Icon} from'react-icons-kit'
 import {socialGithub,socialLinkedin,socialTwitter,iosPerson,email} from "react-icons-kit/ionicons"
 import Link from 'next/link'
 import fetch from 'isomorphic-unfetch';
+import { Button } from 'reactstrap';
 
- const Home = ({ posts }) => {
+
+class Home extends Component {
+  constructor(){
+    super();
+    this.state={
+      posts: 4
+    }
+  }
+
+  incrementposts = () =>{
+    this.setState({posts: this.state.posts+5})
+  }
+
+  addbutton = () => {
+    if (this.state.posts < this.props.posts.length) {
+      return(
+        <Button className="ma4" color="secondary"  id="but" onClick={this.incrementposts}>Devamını Gör</Button>
+      )
+    }
+    else{
+      return null;}
+  }
+
+  render(){
   return (
     <div className='tc'>
       <title>Ahmet Salih Özmen Blog</title>
@@ -17,7 +41,7 @@ import fetch from 'isomorphic-unfetch';
 
       <div className='tc'>
         {
-         posts.map(post =>
+         this.props.posts.slice(0,this.state.posts).map(post =>
           (
         
           <div className='post' key={post.slug}>
@@ -38,6 +62,9 @@ import fetch from 'isomorphic-unfetch';
           </div> 
          ))
         }
+        {
+          this.addbutton()
+        }
       </div>
       <style jsx>{`
       a{
@@ -45,6 +72,7 @@ import fetch from 'isomorphic-unfetch';
       }
       a:hover{
         text-decoration:none;
+        color:black;
       }
       .hero-title{
         font-size:48px;
@@ -71,10 +99,11 @@ import fetch from 'isomorphic-unfetch';
       `}</style>
     </div>
   )
+    }
 }
 
 Home.getInitialProps = async ({req}) => {
-  const res = await fetch("https://ahmetozmen.herokuapp.com/api/posts");
+  const res = await fetch("http://localhost:3000/api/posts");
   const json = await res.json();
   json.reverse();
   return { posts: json };

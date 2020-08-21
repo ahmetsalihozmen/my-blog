@@ -6,6 +6,7 @@ import Link from 'next/link'
 import {socialGithub,socialLinkedin,socialTwitter,iosPerson,email} from "react-icons-kit/ionicons"
 
 const Blogpost = ({post}) => {
+  
   return (
     <div className='tc'>
       <title>{post.title}</title>
@@ -21,7 +22,7 @@ const Blogpost = ({post}) => {
               {post.title}
             </h1>
             <div className='post-text'>
-              <ReactMarkdown source={post.text}/>
+              <ReactMarkdown escapeHtml={false} source={post.text}/>
              </div>
             <div className='post-date'>{post.date}</div>
           </div> 
@@ -63,7 +64,7 @@ const Blogpost = ({post}) => {
 }
 
 Blogpost.getInitialProps =async({req,query})=>{
-  const res = await fetch(`https://ahmetozmen.herokuapp.com/api/post/${query.postid}`)
+  const res = await fetch(`http://localhost:3000/api/post/${query.postid}`)
   const json = await res.json();
   return {post: json.post};
 };

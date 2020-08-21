@@ -19,35 +19,7 @@ const getPosts = () => {
             title: "Third post",
             slug: 'third-post',
             intro: 'Ikinci postun basta gozukecek yeri',
-            text : require('./posts/thirdpost.md').default,
-            date: '6 Agustos 2020'
-        },
-        {
-            title: "Ilk post",
-            slug: 'first-post',
-            intro: 'Ikinci postun basta gozukecek yeri',
-            text : require('./posts/sa.md').default,
-            date: '6 Agustos 2020'
-        },
-        {
-            title: "Ilk post",
-            slug: 'first-post',
-            intro: 'Ikinci postun basta gozukecek yeri',
-            text : require('./posts/sa.md').default,
-            date: '6 Agustos 2020'
-        },
-        {
-            title: "Ilk post",
-            slug: 'first-post',
-            intro: 'Ikinci postun basta gozukecek yeri',
-            text : require('./posts/sa.md').default,
-            date: '6 Agustos 2020'
-        },
-        {
-            title: "Ilk post",
-            slug: 'first-post',
-            intro: 'Ikinci postun basta gozukecek yeri',
-            text : require('./posts/sa.md').default,
+            text : require('./posts/ilkyazi/yazi.md').default,
             date: '6 Agustos 2020'
         }
     ])
