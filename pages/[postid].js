@@ -16,13 +16,12 @@ const Blogpost = ({post}) => {
       <a  href="https://www.linkedin.com/in/ahmet-salih-özmen-30b466169" target="_blank"><Icon className='ma2' size={32} icon={socialLinkedin}/>LinkedIn</a>   <br/>     
       <a  href="https://github.com/ahmetsalihozmen" target="_blank"><Icon className='ma2' size={32} icon={socialGithub}/>GitHub</a>
       <a  href="https://twitter.com/vokulfenmah" target="_blank"><Icon className='ma2' size={32} icon={socialTwitter}/>Twitter</a>
-     
       <div className='post'>
              <h1 className="post-title">
               {post.title}
             </h1>
             <div className='post-text'>
-              <ReactMarkdown escapeHtml={false} source={post.text}/>
+              <ReactMarkdown escapeHtml={false} source={post.text} />
              </div>
             <div className='post-date'>{post.date}</div>
           </div> 
@@ -45,6 +44,7 @@ const Blogpost = ({post}) => {
       }
       .post-date{
         margin-top:10px;
+        margin-bottom:30px;
         text-align:right;
         color: #cccccc;
       }

@@ -1,26 +1,11 @@
 const getPosts = () => {
     return([
         {
-            title: "Ilk post",
-            slug: 'first-post',
-            intro: 'Ikinci postun basta gozukecek yeri',
-            text : require('./posts/sa.md').default,
-            date: '6 Agustos 2020'
-        },
-        {
-            title: "Second post",
-            slug: 'second-post',
-            intro: 'Ikinci postun basta gozukecek yeri',
-            text : require('./posts/secpost.md').default,
-            date: '6 Agustos 2020'
-
-        },
-        {
-            title: "Third post",
-            slug: 'third-post',
-            intro: 'Ikinci postun basta gozukecek yeri',
-            text : require('./posts/ilkyazi/yazi.md').default,
-            date: '6 Agustos 2020'
+            title: "Web Geliştirmeye Başlangıç",
+            slug: 'web-baslangic',
+            intro: 'Merhaba bu yazımda size web siteleri geliştirmeye nasıl, neden başladığımı ve bu yolda nasıl ilerlediğimi anlatacağım. Eğer siz de web developmenta başlamak isteyip bir türlü başlayamıyorsanız veya başlamak aklınıza hiç gelmediyse bu yazının size yardımcı olabileceğini düşünüyorum.',
+            text : require('./posts/yazi.md').default,
+            date: '21 Agustos 2020'
         }
     ])
 };
