@@ -2,14 +2,14 @@ Merhaba bu yazımda sizlere her gün kullandığımız telefon, bilgisayar gibi 
 
 Aşağıdaki konu başlıklarına tıklayarak o konuyu anlattığım yere gidebilirsin.
 
-[Depolama Birimlerinin İşlevi Nedir](#m1)
+[Depolama Birimlerinin İşlevi Nedir?](#m1)
 
-[HDD Nedir ve Nasıl Çalışır](#m2)
+[HDD Nedir ve Nasıl Çalışır?](#m2)
 
-[SSD Nedir ve Nasıl Çalışır](#m3)
+[SSD Nedir ve Nasıl Çalışır?](#m3)
 
-[HDD ve SSD Arasındaki Farklar](#m4)
-
+[HDD ve SSD Arasındaki Farklar Nedir?](#m4)
+ 
 <div id="m1"></div>
 
 ## Depolama Birimlerinin İşlevi Nedir?
@@ -67,6 +67,6 @@ Umarım sizin için bilgilendirici bir yazı olmuştur. Eğer yazımda yanlış 
 
 Kaynakça:
 
-- [https://www.youtube.com/watch?v=5Mh3o886qpg&ab_channel=BranchEducation]
-- [https://www.youtube.com/watch?v=NtPc0jI21i0&ab_channel=SeagateTechnology]
-- [https://www.youtube.com/watch?v=wteUW2sL7bc&t=88s&ab_channel=TED-Ed]
+- <https://www.youtube.com/watch?v=5Mh3o886qpg&ab_channel=BranchEducation>
+- <https://www.youtube.com/watch?v=NtPc0jI21i0&ab_channel=SeagateTechnology>
+- <https://www.youtube.com/watch?v=wteUW2sL7bc&t=88s&ab_channel=TED-Ed>
