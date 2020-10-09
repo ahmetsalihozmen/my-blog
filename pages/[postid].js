@@ -54,7 +54,6 @@ const Blogpost = ({post}) => {
       .post-title{
         margin:30px;
       }
-   
       `}</style>
     </div>
   )
