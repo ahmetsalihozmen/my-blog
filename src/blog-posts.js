@@ -17,10 +17,18 @@ const getPosts = () => {
         {
             title: "QR Kodu Nasıl Çalışır",
             slug: 'QRcode-calisma',
-            intro: 'Merhaba bu yazımda sizlere gunluk hayatta reklam panolarında, broşürlerde ve aklımıza gelebilecek her yerde gördüğümüz QR kodlarının ne olduğunu ve nasıl bir yapıda hazırlandığını anlatacağım.            ',
+            intro: 'Merhaba bu yazımda sizlere gunluk hayatta reklam panolarında, broşürlerde ve aklımıza gelebilecek her yerde gördüğümüz QR kodlarının ne olduğunu ve nasıl bir yapıda hazırlandığını anlatacağım.',
             text : require('./posts/qrcode.md').default,
             date: '14 Ocak 2021'
+        },
+        {
+            title: "Piller Nasıl Çalışır",
+            slug: 'pil-calisma',
+            intro: 'Merhabalar bu yazımda hayatımızdaki birçok cihazda kullanılan pillerin çalışma mantığını anlatacağım. Bunun yanında pillerin tarihininden, pillerin türlerinden ve günümüzde en çok kullanılan pil türlerinden bahsedeceğim.',
+            text : require('./posts/pil.md').default,
+            date: '28 Ocak 2021'
         }
+
     ])
 };
 

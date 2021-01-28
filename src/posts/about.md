@@ -8,4 +8,4 @@ Blog açmaya karar verme sebebim şuydu. Yaklaşık 3 4 aydan beri web developme
 
 Yeni bir proje olarak da blog yapmaya karar verdim bu hem beni developer olarak geliştirecekti hem de insanlarla bilgilerimi ve merak ettiğim konuları paylaşabilecektim. Bu yüzden blog açmaya karar verdim.
 
-İlgilendiğim konular web development, video oyunları, kuantum hesaplama, günlük kullandığımız makineler nasıl çalışır, yiyecekler, tarih ve bunun gibi birçok çeşitli konu hakkında ilgileniyorum. Blogumda bu konular hakkında yazı yazmayı planlıyorum. Blogum hakkında tasarımsal ya da içeriksel olan her görüşünüz için veya sormak istediğiniz sorular için bana <ahmetsalihozm@outlook.com> mailimden ulaşabilirsiniz. 
+İlgilendiğim konular robotik, web development, video oyunları, kuantum hesaplama, günlük kullandığımız makineler nasıl çalışır, yiyecekler, tarih ve bunun gibi birçok çeşitli konu hakkında ilgileniyorum. Blogumda bu konular hakkında yazı yazmayı planlıyorum. Blogum hakkında tasarımsal ya da içeriksel olan her görüşünüz için veya sormak istediğiniz sorular için bana <ahmetsalihozm@outlook.com> mailimden ulaşabilirsiniz. 
