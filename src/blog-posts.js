@@ -27,7 +27,15 @@ const getPosts = () => {
             intro: 'Merhabalar bu yazımda hayatımızdaki birçok cihazda kullanılan pillerin çalışma mantığını anlatacağım. Bunun yanında pillerin tarihininden, pillerin türlerinden ve günümüzde en çok kullanılan pil türlerinden bahsedeceğim.',
             text : require('./posts/pil.md').default,
             date: '28 Ocak 2021'
+        },
+        {
+            title: "Blockchain Nedir",
+            slug: 'blockchain',
+            intro: 'Merhabalar bu yazımda son günlerde çok duyduğumuz kripto paraların çalışmasında temel bir rolu olan blockchain teknolojisini anlatacağım. Blockchain tek bir alanda kullanılmadığı için ben bu yazımda genel olarak kripto para sistemlerinde kullanımını ele alacağım.',
+            text : require('./posts/blockchain.md').default,
+            date: '11 Şubat 2021'
         }
+
 
     ])
 };
