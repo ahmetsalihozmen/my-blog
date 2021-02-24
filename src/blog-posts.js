@@ -38,7 +38,7 @@ const getPosts = () => {
         {
             title: "Çerezler (Cookies) Nedir",
             slug: 'cookies',
-            intro: 'Merhabalar bu yazımda sizlere genellikle sitelere girdiğimiz bir uyarı sayesinde ismini duyduğumuz Türkçe olarak çerezler, İngilizce olarak cookie dediğimiz veri saklama türünden bahsedeceğim.',
+            intro: 'Merhabalar bu yazımda sizlere genellikle sitelere girdiğimizde bir uyarı sayesinde ismini duyduğumuz Türkçe olarak çerez, İngilizce olarak cookie dediğimiz veri saklama türünden bahsedeceğim.            ',
             text : require('./posts/cookie.md').default,
             date: '25 Şubat 2021'
         }
