@@ -34,6 +34,13 @@ const getPosts = () => {
             intro: 'Merhabalar bu yazımda son günlerde çok duyduğumuz kripto paraların çalışmasında temel bir rolu olan blockchain teknolojisini anlatacağım. Blockchain tek bir alanda kullanılmadığı için ben bu yazımda genel olarak kripto para sistemlerinde kullanımını ele alacağım.',
             text : require('./posts/blockchain.md').default,
             date: '11 Şubat 2021'
+        },
+        {
+            title: "Çerezler (Cookies) Nedir",
+            slug: 'cookies',
+            intro: 'Merhabalar bu yazımda sizlere genellikle sitelere girdiğimiz bir uyarı sayesinde ismini duyduğumuz Türkçe olarak çerezler, İngilizce olarak cookie dediğimiz veri saklama türünden bahsedeceğim.',
+            text : require('./posts/cookie.md').default,
+            date: '25 Şubat 2021'
         }
 
 
