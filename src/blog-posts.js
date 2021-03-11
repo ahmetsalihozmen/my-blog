@@ -41,6 +41,13 @@ const getPosts = () => {
             intro: 'Merhabalar bu yazımda sizlere genellikle sitelere girdiğimizde bir uyarı sayesinde ismini duyduğumuz Türkçe olarak çerez, İngilizce olarak cookie dediğimiz veri saklama türünden bahsedeceğim.            ',
             text : require('./posts/cookie.md').default,
             date: '25 Şubat 2021'
+        },
+        {
+            title: "Enigma Makinesi",
+            slug: 'enigma-machine',
+            intro: "Merhabalar bu yazımda tarihte şifreleme konusunda çok önemli bir yeri olan, Alan Turing'in bile şifrelerini çözmek için uğraştığı, hakkında belgeseller ve filmlerin çekildiği Enigma adlı makineden bahsedeceğim.",
+            text : require('./posts/enigma.md').default,
+            date: '11 Mart 2021'
         }
 
 
