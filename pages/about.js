@@ -11,7 +11,6 @@ const About = ({post}) => {
             <a  href="mailto:ahmetsalihozm@outlook.com" target="_blank"><Icon className='ma2' size={32} icon={email}/>Email</a>    
             <a  href="https://www.linkedin.com/in/ahmet-salih-özmen-30b466169" target="_blank"><Icon className='ma2' size={32} icon={socialLinkedin}/>LinkedIn</a>      
             <a  href="https://github.com/ahmetsalihozmen" target="_blank"><Icon className='ma2' size={32} icon={socialGithub}/>GitHub</a>
-            <a  href="https://twitter.com/vokulfenmah" target="_blank"><Icon className='ma2' size={32} icon={socialTwitter}/>Twitter</a>
             <br/>
             <br/>
             <div className='post-text'>

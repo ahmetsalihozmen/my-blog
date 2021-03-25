@@ -48,6 +48,13 @@ const getPosts = () => {
             intro: "Merhabalar bu yazımda tarihte şifreleme konusunda çok önemli bir yeri olan, Alan Turing'in bile şifrelerini çözmek için uğraştığı, hakkında belgeseller ve filmlerin çekildiği Enigma adlı makineden bahsedeceğim.",
             text : require('./posts/enigma.md').default,
             date: '11 Mart 2021'
+        },
+        {
+            title: "Schrödinger’in Kedisi",
+            slug: 'schrodinger',
+            intro: "Merhaba bugün sizlere oldukça meşhur olan kuantum mekaniğinin büyük sistemlerde uygulandığında, ne olabileceğini açıklamak için kullanılan Schrödinger’in Kedisi düşünce deneyini anlatmaya çalışacağım.",
+            text : require('./posts/schrodinger.md').default,
+            date: '25 Mart 2021'
         }
 
 
