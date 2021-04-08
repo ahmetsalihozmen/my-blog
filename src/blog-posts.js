@@ -55,6 +55,13 @@ const getPosts = () => {
             intro: "Merhaba bugün sizlere oldukça meşhur olan kuantum mekaniğinin büyük sistemlerde uygulandığında, ne olabileceğini açıklamak için kullanılan Schrödinger’in Kedisi düşünce deneyini anlatmaya çalışacağım.",
             text : require('./posts/schrodinger.md').default,
             date: '25 Mart 2021'
+        },
+        {
+            title: "Turing Testi",
+            slug: 'turing-testi',
+            intro: "Merhaba bugün sizlere bilgisayarın düşünüp düşünemediğine karar vermek amacıyla yapılan, bilgisayar biliminin kurucusu olan Alan Turing'in bulduğu Turing Testinden bahsedeceğim. ",
+            text : require('./posts/turing.md').default,
+            date: '8 Nisan 2021'
         }
 
 
