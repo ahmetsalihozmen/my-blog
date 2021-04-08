@@ -59,7 +59,7 @@ const getPosts = () => {
         {
             title: "Turing Testi",
             slug: 'turing-testi',
-            intro: "Merhaba bugün sizlere bilgisayarın düşünüp düşünemediğine karar vermek amacıyla yapılan, bilgisayar biliminin kurucusu olan Alan Turing'in bulduğu Turing Testinden bahsedeceğim. ",
+            intro: "Merhaba bugün sizlere makineler düşününebilir mi sorusuna cevap vermek için yapılan, bilgisayar biliminin kurucusu sayılan Alan Turing'in bulduğu Turing testinden bahsedeceğim. ",
             text : require('./posts/turing.md').default,
             date: '8 Nisan 2021'
         }
