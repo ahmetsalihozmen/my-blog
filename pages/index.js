@@ -102,7 +102,7 @@ class Home extends Component {
 }
 
 Home.getInitialProps = async ({req}) => {
-  const res = await fetch("https://ahmetozmen.herokuapp.com/api/posts");
+  const res = await fetch("http://ahmetsalihozmen.com/api/posts");
   const json = await res.json();
   json.reverse();
   return { posts: json };
