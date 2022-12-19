@@ -33,7 +33,7 @@ class Home extends Component {
     <div className='tc'>
       <title>Ahmet Salih Özmen Blog</title>
       <h1 className='hero-title'>Ahmet Salih Özmen</h1>
-      <Link href='about'><a><Icon className='ma2' size={32} icon={iosPerson}/>Hakkımda</a></Link>
+      <Link className='link' href='about'><Icon className='ma2' size={32} icon={iosPerson}/>Hakkımda</Link>
       <a  href="mailto:ahmetsalihozm@outlook.com" target="_blank"><Icon className='ma2' size={32} icon={email}/>Email</a>    
       <a  href="https://www.linkedin.com/in/ahmet-salih-özmen-30b466169" target="_blank"><Icon className='ma2' size={32} icon={socialLinkedin}/>LinkedIn</a>  <br/>    
       <a  href="https://github.com/ahmetsalihozmen" target="_blank"><Icon className='ma2' size={32} icon={socialGithub}/>GitHub</a>
@@ -45,16 +45,16 @@ class Home extends Component {
         
           <div className='post' key={post.slug}>
              <h2 className="post-title">
-              <Link href={post.slug}>
-                <a className="blog-title-link">{post.title}</a>
+              <Link className='link' href={post.slug}>
+                {post.title}
               </Link>
             </h2>
             <div className='post-text'>
               <p>
                 {post.intro}
                 </p>
-              <Link href={post.slug}>
-                <a className="blog-title-link"> <strong>Devamını oku...</strong></a>
+              <Link className='link' href={post.slug}>
+               <strong>Devamını oku...</strong>
               </Link>
              </div>
             <div className='post-date'>{post.date}</div>
@@ -95,6 +95,9 @@ class Home extends Component {
       .about{
         text-align: right;
       }
+      .link{
+        color: black !important;
+      }
       `}</style>
     </div>
   )
@@ -102,7 +105,7 @@ class Home extends Component {
 }
 
 Home.getInitialProps = async ({req}) => {
-  const res = await fetch("http://ahmetsalihozmen.com/api/posts");
+  const res = await fetch("http://localhost:3000/api/posts");
   const json = await res.json();
   json.reverse();
   return { posts: json };
