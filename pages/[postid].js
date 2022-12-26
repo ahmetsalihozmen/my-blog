@@ -6,8 +6,8 @@ import Link from 'next/link'
 import {Container,Row,Col} from 'reactstrap'
 import {socialGithub,socialLinkedin,socialTwitter,iosPerson,email} from "react-icons-kit/ionicons"
 
-const Blogpost = ({post}) => {
-  
+const Blogpost = (props) => {
+  const {post} = props;
   return (
     <Container>
       <Row>
@@ -71,12 +71,12 @@ const Blogpost = ({post}) => {
 }
 
 Blogpost.getInitialProps =async({req,query})=>{
-  console.log("SA")
   const res = await fetch(`http://localhost:3000/api/post/${query.postid}`)
   const json = await res.json();
-  console.log(json)
-  return {post: json.post};
+  return {post: json.post, fallback: false};
 };
+
+
 
 
 export default Blogpost
