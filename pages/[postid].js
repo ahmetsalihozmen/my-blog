@@ -15,7 +15,7 @@ const Blogpost = ({ post }) => {
           <div className='tc text'>
             <title>{post.title}</title>
             <h1 className='hero-title'>
-              <a href='https://ahmetsalihozmen.com'>Ahmet Salih Özmen</a>
+              <a href='https://ahmetozmen.herokuapp.com'>Ahmet Salih Özmen</a>
             </h1>
             <Link href='/about'>
               <Icon className='ma2' size={32} icon={iosPerson} />
