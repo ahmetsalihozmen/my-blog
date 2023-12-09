@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import {Icon} from'react-icons-kit'
-import {socialGithub,socialLinkedin,socialTwitter,iosPerson,email} from "react-icons-kit/ionicons"
+import { Icon } from 'react-icons-kit'
+import { socialGithub, socialLinkedin, socialTwitter, iosPerson, email } from "react-icons-kit/ionicons"
 import Link from 'next/link'
 import fetch from 'isomorphic-unfetch';
 import { Button } from 'reactstrap';
@@ -28,38 +28,38 @@ function Home(props) {
 
 
 
-  console.log(props);
+  // console.log(props);
 
   return (
     <div className='tc'>
       <title>Ahmet Salih Özmen Blog</title>
       <h1 className='hero-title'>Ahmet Salih Özmen</h1>
-      <Link className='link' href='about'><Icon className='ma2' size={32} icon={iosPerson}/>Hakkımda</Link>
-      <a href="mailto:ahmetsalihozm@outlook.com" target="_blank"><Icon className='ma2' size={32} icon={email}/>Email</a>
-      <a href="https://www.linkedin.com/in/ahmet-salih-özmen-30b466169" target="_blank"><Icon className='ma2' size={32} icon={socialLinkedin}/>LinkedIn</a> <br/>
-      <a href="https://github.com/ahmetsalihozmen" target="_blank"><Icon className='ma2' size={32} icon={socialGithub}/>GitHub</a>
+      <Link className='link' href='about'><Icon className='ma2' size={32} icon={iosPerson} />Hakkımda</Link>
+      <a href="mailto:ahmetsalihozm@outlook.com" target="_blank"><Icon className='ma2' size={32} icon={email} />Email</a>
+      <a href="https://www.linkedin.com/in/ahmet-salih-özmen-30b466169" target="_blank"><Icon className='ma2' size={32} icon={socialLinkedin} />LinkedIn</a> <br />
+      <a href="https://github.com/ahmetsalihozmen" target="_blank"><Icon className='ma2' size={32} icon={socialGithub} />GitHub</a>
 
-        {
-          props.posts.slice(0, posts).map(post => (
-            <div className='post' key={post.slug}>
-              <h2 className="post-title">
-                <Link className='link' href={post.slug}>
-                  {post.title}
-                </Link>
-              </h2>
-              <div className='post-text'>
-                <p>
-                  {post.intro}
-                </p>
-                <Link className='link' href={post.slug}>
-                  <strong>Devamını oku...</strong>
-                </Link>
-              </div>
-              <div className='post-date'>{post.date}</div>
+      {
+        props.posts.slice(0, posts).map(post => (
+          <div className='post' key={post.slug}>
+            <h2 className="post-title">
+              <Link className='link' href={post.slug}>
+                {post.title}
+              </Link>
+            </h2>
+            <div className='post-text'>
+              <p>
+                {post.intro}
+              </p>
+              <Link className='link' href={post.slug}>
+                <strong>Devamını oku...</strong>
+              </Link>
             </div>
-          ))
-        }
-        {addButton()}
+            <div className='post-date'>{post.date}</div>
+          </div>
+        ))
+      }
+      {addButton()}
       <style jsx>{`
       a{
         color: black;
@@ -94,17 +94,19 @@ function Home(props) {
       color: black !important;
       }
       `}</style>
-      </div>
-      )
-      }
-      
-      Home.getInitialProps = async ({req}) => {
-      const res = await fetch("http://localhost:3000/api/posts");
-      const json = await res.json();
-      json.reverse();
-      return { posts: json, fallback: false};
-      };
-      
-      export default Home;
-      
-      
+    </div>
+  )
+}
+
+
+export async function getStaticProps({ params }) {
+  const res = await fetch("http://localhost:3000/api/posts");
+  const json = await res.json();
+  json.reverse();
+  return {props: {posts: json, fallback: false} };
+}
+
+
+export default Home;
+
+
