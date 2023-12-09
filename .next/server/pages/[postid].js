@@ -60,7 +60,7 @@ const Blogpost = ({ post  })=>{
                             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h1", {
                                 className: "jsx-559c151e1b10c0e5" + " " + "hero-title",
                                 children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("a", {
-                                    href: "https://ahmetozmen.herokuapp.com",
+                                    href: "https://ahmetsalihozmen.com",
                                     className: "jsx-559c151e1b10c0e5",
                                     children: "Ahmet Salih \xd6zmen"
                                 })

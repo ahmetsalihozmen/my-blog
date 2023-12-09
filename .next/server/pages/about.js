@@ -1,3 +1,4 @@
+"use strict";
 (() => {
 var exports = {};
 exports.id = 521;
@@ -7,7 +8,6 @@ exports.modules = {
 /***/ 8953:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -105,7 +105,7 @@ const About = ({ post  })=>{
     });
 };
 About.getInitialProps = async ({ req , query  })=>{
-    const md = (__webpack_require__(2056)["default"]);
+    const md = (__webpack_require__(6369)/* ["default"] */ .Z);
     return {
         post: md
     };
@@ -115,17 +115,19 @@ About.getInitialProps = async ({ req , query  })=>{
 
 /***/ }),
 
-/***/ 2056:
-/***/ (() => {
+/***/ 6369:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-throw new Error("Module parse failed: Unexpected character '#' (1:1)\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\n> ## Hakkımda:\n| Merhaba ben Ahmet Salih Özmen Yıldız Teknik Üniversitesinde 3. sınıf bilgisayar mühendisliği öğrencisiyim. Okulumun olduğu zamanlarında İstanbul'da, tatil zamanlarında ise Karabük'de yaşıyorum. \n| ");
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Z": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("## Hakkımda:\r\nMerhaba ben Ahmet Salih Özmen Yıldız Teknik Üniversitesinde 3. sınıf bilgisayar mühendisliği öğrencisiyim. Okulumun olduğu zamanlarında İstanbul'da, tatil zamanlarında ise Karabük'de yaşıyorum. \r\n\r\nBlog açmaya karar verme sebebim şuydu. Yaklaşık 3 4 aydan beri web development ile uğraşıyordum ve bu konu hakkında birkaç proje yaptım bu projelerime alttaki linklerden ulaşabilirsiniz:\r\n* https://smart-brain-ahmet.herokuapp.com Bu çalışmam web development öğrenirken yaptığım bir proje. \r\n* https://leave-system-ahmet.herokuapp.com **id: ahmet şifre: 123** İlk yaptığım freelance projem. Proje kullanıcının şirketindeki izinleri yönetmesini sağlıyor.\r\n* https://ahmetozmen.herokuapp.com En son projem ise bu blog.\r\n\r\nYeni bir proje olarak da blog yapmaya karar verdim bu hem beni developer olarak geliştirecekti hem de insanlarla bilgilerimi ve merak ettiğim konuları paylaşabilecektim. Bu yüzden blog açmaya karar verdim.\r\n\r\nİlgilendiğim konular robotik, web development, video oyunları, kuantum hesaplama, günlük kullandığımız makineler nasıl çalışır, yiyecekler, tarih ve bunun gibi birçok çeşitli konu hakkında ilgileniyorum. Blogumda bu konular hakkında yazı yazmayı planlıyorum. Blogum hakkında tasarımsal ya da içeriksel olan her görüşünüz için veya sormak istediğiniz sorular için bana <ahmetsalihozm@outlook.com> mailimden ulaşabilirsiniz. \r\n");
 
 /***/ }),
 
 /***/ 6689:
 /***/ ((module) => {
 
-"use strict";
 module.exports = require("react");
 
 /***/ }),
@@ -133,7 +135,6 @@ module.exports = require("react");
 /***/ 55:
 /***/ ((module) => {
 
-"use strict";
 module.exports = require("react-icons-kit");
 
 /***/ }),
@@ -141,7 +142,6 @@ module.exports = require("react-icons-kit");
 /***/ 7135:
 /***/ ((module) => {
 
-"use strict";
 module.exports = require("react-icons-kit/ionicons");
 
 /***/ }),
@@ -149,7 +149,6 @@ module.exports = require("react-icons-kit/ionicons");
 /***/ 3702:
 /***/ ((module) => {
 
-"use strict";
 module.exports = require("react-markdown");
 
 /***/ }),
@@ -157,7 +156,6 @@ module.exports = require("react-markdown");
 /***/ 997:
 /***/ ((module) => {
 
-"use strict";
 module.exports = require("react/jsx-runtime");
 
 /***/ }),
@@ -165,7 +163,6 @@ module.exports = require("react/jsx-runtime");
 /***/ 9816:
 /***/ ((module) => {
 
-"use strict";
 module.exports = require("styled-jsx/style");
 
 /***/ })
