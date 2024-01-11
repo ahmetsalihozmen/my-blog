@@ -1,7 +1,7 @@
 import React from 'react';
 import fetch from 'isomorphic-unfetch';
 import { Icon } from 'react-icons-kit';
-import ReactMarkdown from 'react-markdown';
+import Markdown from 'react-markdown';
 import Link from 'next/link';
 import { Container, Row, Col } from 'reactstrap';
 import { socialGithub, socialLinkedin, socialTwitter, iosPerson, email } from 'react-icons-kit/ionicons';
@@ -37,7 +37,7 @@ const Blogpost = ({ post }) => {
             <div className='post'>
               <h1 className='post-title'>{post.title}</h1>
               <div className='post-text'>
-                <ReactMarkdown escapeHtml={false} source={post.text} />
+                <Markdown>{post.text}</Markdown>
               </div>
               <div className='post-date'>{post.date}</div>
             </div>

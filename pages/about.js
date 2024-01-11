@@ -1,7 +1,7 @@
 import React from 'react';
 import {Icon} from'react-icons-kit'
 import {socialGithub,socialLinkedin,socialTwitter,email} from "react-icons-kit/ionicons"
-import ReactMarkdown from 'react-markdown';
+import Markdown from 'react-markdown'
 
 const About = ({post}) => {
     return(
@@ -14,7 +14,7 @@ const About = ({post}) => {
             <br/>
             <br/>
             <div className='post-text'>
-            <ReactMarkdown source={post}></ReactMarkdown>
+            <Markdown>{post}</Markdown>
             </div>
 
             <style jsx>
@@ -42,6 +42,7 @@ const About = ({post}) => {
 About.getInitialProps =async({req,query})=>{
 
     const md = require('../src/posts/about.md').default
+    console.log(md)
     return {post: md};
   };
   

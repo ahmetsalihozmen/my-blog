@@ -7,9 +7,15 @@ import { Button } from 'reactstrap';
 
 
 import { useState, useEffect } from 'react';
+import { Grid, Toolbar, IconButton, Typography, Tabs, Tab, Divider } from '@mui/material';
 
 function Home(props) {
   const [posts, setPosts] = useState(4);
+  const [value, setValue] = useState('home');
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
 
   const incrementPosts = () => {
     setPosts(posts + 5);
@@ -26,39 +32,58 @@ function Home(props) {
     }
   }
 
-
-
-  // console.log(props);
-
   return (
-    <div className='tc'>
+    <Grid className='tc'>
       <title>Ahmet Salih Özmen Blog</title>
-      <h1 className='hero-title'>Ahmet Salih Özmen</h1>
-      <Link className='link' href='about'><Icon className='ma2' size={32} icon={iosPerson} />Hakkımda</Link>
-      <a href="mailto:ahmetsalihozm@outlook.com" target="_blank"><Icon className='ma2' size={32} icon={email} />Email</a>
-      <a href="https://www.linkedin.com/in/ahmet-salih-özmen-30b466169" target="_blank"><Icon className='ma2' size={32} icon={socialLinkedin} />LinkedIn</a> <br />
-      <a href="https://github.com/ahmetsalihozmen" target="_blank"><Icon className='ma2' size={32} icon={socialGithub} />GitHub</a>
-
-      {
-        props.posts.slice(0, posts).map(post => (
-          <div className='post' key={post.slug}>
-            <h2 className="post-title">
-              <Link className='link' href={post.slug}>
-                {post.title}
-              </Link>
-            </h2>
-            <div className='post-text'>
-              <p>
-                {post.intro}
-              </p>
-              <Link className='link' href={post.slug}>
-                <strong>Devamını oku...</strong>
-              </Link>
-            </div>
-            <div className='post-date'>{post.date}</div>
-          </div>
-        ))
-      }
+      <Grid style={{ backgroundColor: "grey" }}>
+        <Toolbar style={{ background: "rgba(0, 0, 0, 0.2)" }} variant="dense">
+          <Grid marginY={4} container>
+            <Grid item display="flex" justifyContent="start" xs={6}>
+              <Typography style={{ color: "white", fontWeight: "bold" }} variant="h5" color="inherit">
+                Ahmet Salih Özmen
+              </Typography>
+            </Grid>
+            <Grid item xs={6} display="flex" justifyContent="end">
+              <Tabs
+                value={value}
+                onChange={handleChange}
+                aria-label="secondary tabs example"
+              >
+                <Tab value="home" label="Home" />
+                <Tab value="about" label="About" />
+                <Tab value="articles" label="Articles" />
+              </Tabs>
+              <Divider orientation="vertical" flexItem />
+              <a href="mailto:ahmetsalihozm@outlook.com" target="_blank"><Icon className='ma2' size={32} icon={email} /></a>
+              <a href="https://www.linkedin.com/in/ahmet-salih-özmen-30b466169" target="_blank"><Icon className='ma2' size={32} icon={socialLinkedin} /></a> <br />
+              <a href="https://github.com/ahmetsalihozmen" target="_blank"><Icon className='ma2' size={32} icon={socialGithub} /></a>
+              <Divider orientation="vertical" flexItem />
+            </Grid>
+          </Grid>
+        </Toolbar>        
+      </Grid>
+      <Grid container padding={5}>
+        {
+          props.posts.slice(0, posts).map(post => (
+            <Grid item lg={3} md={4} sm={6} xs={12} padding={5} className='post' key={post.slug}>
+              <h2 className="post-title">
+                <Link className='link' href={post.slug}>
+                  {post.title}
+                </Link>
+              </h2>
+              <div className='post-text'>
+                <p>
+                  {post.intro}
+                </p>
+                <Link className='link' href={post.slug}>
+                  <strong>Devamını oku...</strong>
+                </Link>
+              </div>
+              <div className='post-date'>{post.date}</div>
+            </Grid>
+          ))
+        }
+      </Grid>
       {addButton()}
       <style jsx>{`
       a{
@@ -94,7 +119,7 @@ function Home(props) {
       color: black !important;
       }
       `}</style>
-    </div>
+    </Grid>
   )
 }
 
@@ -103,7 +128,7 @@ export async function getStaticProps({ params }) {
   const res = await fetch("http://localhost:3000/api/posts");
   const json = await res.json();
   json.reverse();
-  return {props: {posts: json, fallback: false} };
+  return { props: { posts: json, fallback: false } };
 }
 
 
