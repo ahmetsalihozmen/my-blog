@@ -5,35 +5,18 @@ import Markdown from 'react-markdown';
 import Link from 'next/link';
 import { Container, Row, Col } from 'reactstrap';
 import { socialGithub, socialLinkedin, socialTwitter, iosPerson, email } from 'react-icons-kit/ionicons';
+import Navbar from '../src/components/navbar';
+import { Grid } from '@mui/material';
 
 const Blogpost = ({ post }) => {
   return (
-    <Container>
+    <Grid width="100%">
+      <Navbar />
       <Row>
         <Col xs={1}></Col>
         <Col xs={10}>
           <div className='tc text'>
             <title>{post.title}</title>
-            <h1 className='hero-title'>
-              <a href='https://ahmetsalihozmen.com'>Ahmet Salih Özmen</a>
-            </h1>
-            <Link href='/about'>
-              <Icon className='ma2' size={32} icon={iosPerson} />
-              Hakkımda
-            </Link>
-            <a href='mailto:ahmetsalihozm@outlook.com' target='_blank'>
-              <Icon className='ma2' size={32} icon={email} />
-              Email
-            </a>
-            <a href='https://www.linkedin.com/in/ahmet-salih-özmen-30b466169' target='_blank'>
-              <Icon className='ma2' size={32} icon={socialLinkedin} />
-              LinkedIn
-            </a>
-            <br />
-            <a href='https://github.com/ahmetsalihozmen' target='_blank'>
-              <Icon className='ma2' size={32} icon={socialGithub} />
-              GitHub
-            </a>
             <div className='post'>
               <h1 className='post-title'>{post.title}</h1>
               <div className='post-text'>
@@ -76,7 +59,7 @@ const Blogpost = ({ post }) => {
         </Col>
         <Col xs={1}></Col>
       </Row>
-    </Container>
+    </Grid>
   );
 };
 

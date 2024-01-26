@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import { Icon } from 'react-icons-kit'
-import { socialGithub, socialLinkedin, socialTwitter, iosPerson, email } from "react-icons-kit/ionicons"
 import Link from 'next/link'
 import fetch from 'isomorphic-unfetch';
 import { Button } from 'reactstrap';
@@ -8,14 +6,10 @@ import { Button } from 'reactstrap';
 
 import { useState, useEffect } from 'react';
 import { Grid, Toolbar, IconButton, Typography, Tabs, Tab, Divider } from '@mui/material';
+import Navbar from '../src/components/navbar';
 
 function Home(props) {
   const [posts, setPosts] = useState(4);
-  const [value, setValue] = useState('home');
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
 
   const incrementPosts = () => {
     setPosts(posts + 5);
@@ -27,40 +21,23 @@ function Home(props) {
         <Button className="ma4" color="secondary" id="but" onClick={incrementPosts}>Devamını Gör</Button>
       )
     }
-    else {
-      return null;
-    }
   }
 
   return (
     <Grid className='tc'>
       <title>Ahmet Salih Özmen Blog</title>
-      <Grid style={{ backgroundColor: "grey" }}>
-        <Toolbar style={{ background: "rgba(0, 0, 0, 0.2)" }} variant="dense">
-          <Grid marginY={4} container>
-            <Grid item display="flex" justifyContent="start" xs={6}>
-              <Typography style={{ color: "white", fontWeight: "bold" }} variant="h5" color="inherit">
-                Ahmet Salih Özmen
-              </Typography>
-            </Grid>
-            <Grid item xs={6} display="flex" justifyContent="end">
-              <Tabs
-                value={value}
-                onChange={handleChange}
-                aria-label="secondary tabs example"
-              >
-                <Tab value="home" label="Home" />
-                <Tab value="about" label="About" />
-                <Tab value="articles" label="Articles" />
-              </Tabs>
-              <Divider orientation="vertical" flexItem />
-              <a href="mailto:ahmetsalihozm@outlook.com" target="_blank"><Icon className='ma2' size={32} icon={email} /></a>
-              <a href="https://www.linkedin.com/in/ahmet-salih-özmen-30b466169" target="_blank"><Icon className='ma2' size={32} icon={socialLinkedin} /></a> <br />
-              <a href="https://github.com/ahmetsalihozmen" target="_blank"><Icon className='ma2' size={32} icon={socialGithub} /></a>
-              <Divider orientation="vertical" flexItem />
-            </Grid>
-          </Grid>
-        </Toolbar>        
+      <Grid style={{ backgroundColor: "#262626", height: "900px" }}>
+        <Navbar />
+        <Grid container justifyContent="center" alignItems="center" style={{ height: "100%" }}>
+          <Grid item>
+            <Typography style={{ color: "white", fontWeight: "bold" }} variant="h2" color="inherit">
+              {props.posts[0].title}
+            </Typography>
+            <Typography style={{ color: "white", fontWeight: "bold" }} variant="h5" color="inherit">
+              {props.posts[0].intro}
+            </Typography>
+          </Grid>  
+        </Grid>      
       </Grid>
       <Grid container padding={5}>
         {
@@ -92,10 +69,6 @@ function Home(props) {
       a:hover{
         text-decoration:none;
         color:black;
-      }
-      .hero-title{
-        font-size:48px;
-        margin: 30px;
       }
       .post{
       max-width:650px;
