@@ -1,13 +1,15 @@
-import { Grid } from "@mui/material";
+import { Grid, useTheme } from "@mui/material";
 import Navbar from "../src/components/navbar";
 
 const ArticlesPage = ({ posts }) => {
+    const theme = useTheme();
+    const {text, background} = theme.palette;
 
     return <Grid>
-        <Navbar />
-        <Grid container display="flex" justifyContent="center" margin={3} padding={2}>
+        <Grid sx={{ background: background.primary, height: '100%' }} container display="flex" justifyContent="center" padding={2}>
             {posts.map(post =>
-                <Grid item xs={12} sm={6} md={4} lg={3} margin={3} sx={{
+                <Grid item xs={12} sm={6} md={4} lg={3} padding={3} sx={{
+                    color: text,
                     border: 1
                 }}>
                     <Grid item display="flex" justifyContent="center">

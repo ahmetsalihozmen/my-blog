@@ -1,5 +1,24 @@
  a{
-  color: antiquewhite;
+  color: #f56e0f !important;
+  &:hover{
+    text-decoration: none !important;
+  }
   text-decoration: none;
 }
 
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  background-color: #f5f5f5;
+  color: #333333;
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+#__next{
+  min-height: 100vh ;
+  background-color: #e0e0e0;
+}

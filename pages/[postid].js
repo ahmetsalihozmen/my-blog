@@ -1,64 +1,63 @@
 import React from 'react';
 import fetch from 'isomorphic-unfetch';
-import { Icon } from 'react-icons-kit';
 import Markdown from 'react-markdown';
-import Link from 'next/link';
-import { Container, Row, Col } from 'reactstrap';
-import { socialGithub, socialLinkedin, socialTwitter, iosPerson, email } from 'react-icons-kit/ionicons';
-import Navbar from '../src/components/navbar';
-import { Grid } from '@mui/material';
+import { Grid, useTheme } from '@mui/material';
+import rehypeRaw from 'rehype-raw'
+ 
 
 const Blogpost = ({ post }) => {
-  return (
-    <Grid width="100%">
-      <Navbar />
-      <Row>
-        <Col xs={1}></Col>
-        <Col xs={10}>
-          <div className='tc text'>
-            <title>{post.title}</title>
-            <div className='post'>
-              <h1 className='post-title'>{post.title}</h1>
-              <div className='post-text'>
-                <Markdown>{post.text}</Markdown>
-              </div>
-              <div className='post-date'>{post.date}</div>
-            </div>
+  const theme = useTheme();
+  const {text, background} = theme.palette;
 
-            <style jsx>{`
-              .blog-title {
-                margin-bottom: 10%;
-              }
-              a:hover,
-              a {
-                color: black;
-                text-decoration: none;
-              }
-              .hero-title {
-                font-size: 48px;
-                margin: 30px;
-              }
-              .post {
-                max-width: 650px;
-                margin: auto;
-              }
-              .post-date {
-                margin-top: 10px;
-                margin-bottom: 30px;
-                text-align: right;
-                color: #cccccc;
-              }
-              .post-text {
-                text-align: left;
-              }
-              .post-title {
-                margin: 30px;
-              }
-            `}</style>
+  return (
+    <Grid container height='100%' sx={{ background: background.primary, height: '100%' }} width="100%">
+      <Grid item xs={1}/>
+      <Grid item xs={10}>
+        <div className='tc text'>
+          <title>{post.title}</title>
+          <div className='post'>
+            <h1 className='post-title'>{post.title}</h1>
+            <div className='post-text'>
+              <Markdown rehypePlugins={[rehypeRaw]}>{post.text}</Markdown>
+            </div>
+            <div className='post-date'>{post.date}</div>
           </div>
-        </Col>
-        <Col xs={1}></Col>
-      </Row>
+
+          <style jsx>{`
+            .blog-title {
+              margin-bottom: 10%;
+            }
+            a:hover,
+            a {
+              color: black;
+              text-decoration: none;
+            }
+            .hero-title {
+              font-size: 48px;
+              margin: 30px;
+            }
+            .post {
+              max-width: 650px;
+              margin: auto;
+            }
+            .post-date {
+              margin-top: 10px;
+              margin-bottom: 30px;
+              text-align: right;
+              color: #cccccc;
+            }
+            .post-text {
+              text-align: left;
+              color: ${text};
+            }
+            .post-title {
+              color: ${text};
+            }
+
+          `}</style>
+        </div>
+      </Grid>
+      <Grid item xs={1}/>
     </Grid>
   );
 };
