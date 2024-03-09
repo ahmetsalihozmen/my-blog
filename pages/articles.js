@@ -1,5 +1,6 @@
 import { Grid, useTheme } from "@mui/material";
 import Navbar from "../src/components/navbar";
+import Image from "next/image";
 
 const ArticlesPage = ({ posts }) => {
     const theme = useTheme();
@@ -13,7 +14,7 @@ const ArticlesPage = ({ posts }) => {
                     border: 1
                 }}>
                     <Grid item display="flex" justifyContent="center">
-                        <img src="./2048.png" width={310} height={280}></img>
+                        <Image src={post?.image} width={310} height={280}></Image>
                     </Grid>
                     {post.title}
                 </Grid>)}

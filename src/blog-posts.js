@@ -3,6 +3,7 @@ const getPosts = () => {
         {
             title: "Web Geliştirmeye Başlangıç",
             slug: 'web-baslangic',
+            image: '/webdev.webp',
             intro: 'Merhaba bu yazımda size web siteleri geliştirmeye nasıl, neden başladığımı ve bu yolda nasıl ilerlediğimi anlatacağım. Eğer siz de web developmenta başlamak isteyip bir türlü başlayamıyorsanız veya başlamak aklınıza hiç gelmediyse bu yazının size yardımcı olabileceğini düşünüyorum.',
             text : require('./posts/yazi.md').default,
             date: '21 Agustos 2020'
@@ -10,6 +11,7 @@ const getPosts = () => {
         {
             title: "HDD ve SSD Nasıl Çalışır",
             slug: 'hdd-ssd-calisma',
+            image: '/hddssd.webp',
             intro: 'Merhaba bu yazımda sizlere her gün kullandığımız telefon, bilgisayar gibi teknolojik aletlerin depolama birimlerinden olan HDD ve SSD komponentlerinin farkını ve yüzeysel olarak bu depolama birimlerinin çalışma mantığını anlatmaya çalışacağım.',
             text : require('./posts/ssdyazi.md').default,
             date: '9 Ekim 2020'
@@ -17,6 +19,7 @@ const getPosts = () => {
         {
             title: "QR Kodu Nasıl Çalışır",
             slug: 'QRcode-calisma',
+            image: '/qr.webp',
             intro: 'Merhaba bu yazımda sizlere gunluk hayatta reklam panolarında, broşürlerde ve aklımıza gelebilecek her yerde gördüğümüz QR kodlarının ne olduğunu ve nasıl bir yapıda hazırlandığını anlatacağım.',
             text : require('./posts/qrcode.md').default,
             date: '14 Ocak 2021'
@@ -25,12 +28,15 @@ const getPosts = () => {
             title: "Piller Nasıl Çalışır",
             slug: 'pil-calisma',
             intro: 'Merhabalar bu yazımda hayatımızdaki birçok cihazda kullanılan pillerin çalışma mantığını anlatacağım. Bunun yanında pillerin tarihininden, pillerin türlerinden ve günümüzde en çok kullanılan pil türlerinden bahsedeceğim.',
+            image: '/battery.png',
             text : require('./posts/pil.md').default,
             date: '28 Ocak 2021'
         },
         {
             title: "Blockchain Nedir",
             slug: 'blockchain',
+            image: '/blockchain.webp',
+            imageAvg: 'rgba(186, 213, 220, 0.3)',
             intro: 'Merhabalar bu yazımda son günlerde çok duyduğumuz kripto paraların çalışmasında temel bir rolu olan blockchain teknolojisini anlatacağım. Blockchain tek bir alanda kullanılmadığı için ben bu yazımda genel olarak kripto para sistemlerinde kullanımını ele alacağım.',
             text : require('./posts/blockchain.md').default,
             date: '11 Şubat 2021'
@@ -38,6 +44,8 @@ const getPosts = () => {
         {
             title: "Çerezler (Cookies) Nedir",
             slug: 'cookies',
+            image: '/cookies.webp',
+            imageAvg: 'rgba(157, 136, 115, 0.3)',
             intro: 'Merhabalar bu yazımda sizlere genellikle sitelere girdiğimizde bir uyarı sayesinde ismini duyduğumuz Türkçe olarak çerez, İngilizce olarak cookie dediğimiz veri saklama türünden bahsedeceğim.            ',
             text : require('./posts/cookie.md').default,
             date: '25 Şubat 2021'
@@ -45,6 +53,8 @@ const getPosts = () => {
         {
             title: "Enigma Makinesi",
             slug: 'enigma-machine',
+            image: '/enigma.webp',
+            imageAvg: 'rgba(80, 79, 78, 0.3)',
             intro: "Merhabalar bu yazımda tarihte şifreleme konusunda çok önemli bir yeri olan, Alan Turing'in bile şifrelerini çözmek için uğraştığı, hakkında belgeseller ve filmlerin çekildiği Enigma adlı makineden bahsedeceğim.",
             text : require('./posts/enigma.md').default,
             date: '11 Mart 2021'
@@ -53,6 +63,8 @@ const getPosts = () => {
             title: "Schrödinger’in Kedisi",
             slug: 'schrodinger',
             intro: "Merhaba bugün sizlere oldukça meşhur olan kuantum mekaniğinin büyük sistemlerde uygulandığında, ne olabileceğini açıklamak için kullanılan Schrödinger’in Kedisi düşünce deneyini anlatmaya çalışacağım.",
+            image: '/sch-cat.webp',
+            imageAvg: 'rgba(112, 88, 75, 0.3)',
             text : require('./posts/schrodinger.md').default,
             date: '25 Mart 2021'
         },
@@ -60,6 +72,8 @@ const getPosts = () => {
             title: "Turing Testi",
             slug: 'turing-testi',
             intro: "Merhaba bugün sizlere makineler düşününebilir mi sorusuna cevap vermek için yapılan, bilgisayar biliminin kurucusu sayılan Alan Turing'in bulduğu Turing testinden bahsedeceğim. ",
+            imageAvg: 'rgba(88, 70, 48, 0.3)',
+            image: '/turing.webp',
             text : require('./posts/turing.md').default,
             date: '8 Nisan 2021'
         }

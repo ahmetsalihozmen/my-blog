@@ -4,7 +4,7 @@ import Link from 'next/link';
 import React from 'react'
 
 export default function PostCard({post}) {
-    const {title, intro, date, slug, image} = post;
+    const {title, intro, date, slug, image, imageAvg} = post;
 
     const theme = useTheme();
     const {text, background, dark, grey, orange} = theme.palette;
@@ -14,6 +14,7 @@ export default function PostCard({post}) {
         <Box sx={{
             padding: '20px',
             borderRadius: '10px',
+            background: imageAvg,
             }} width= {350} height= {650}>
             <Link href={slug}>
                 <Image 
