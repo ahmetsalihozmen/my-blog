@@ -2,8 +2,9 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/about": "pages/about.js",
-  "/api/posts": "pages/api/posts.js",
+  "/articles": "pages/articles.js",
+  "/[postid]": "pages/[postid].js",
+  "/api/post/[postid]": "pages/api/post/[postid].js",
   "/": "pages/index.js",
-  "/articles": "pages/articles.js"
+  "/api/posts": "pages/api/posts.js"
 }

@@ -3,6 +3,7 @@ import fetch from 'isomorphic-unfetch';
 import { useState, useEffect } from 'react';
 import { Grid, Toolbar, IconButton, Typography, Tabs, Tab, Divider, useTheme } from '@mui/material';
 import PostCard from '../src/components/PostCard';
+import Link from 'next/link';
 
 function Home(props) {
   const [posts, setPosts] = useState(4);
@@ -33,9 +34,11 @@ function Home(props) {
               animation: 'moveTopToCenter 0.8s ease-out',
             }}
           >
-            <Typography sx={{ color: text, fontWeight: "bold", marginBottom: '40px' }} variant="h2" color="inherit">
-              {props.posts[0].title}
-            </Typography>
+           <Link href={props.posts[0].slug}>
+              <Typography sx={{ color: text, fontWeight: "bold", marginBottom: '40px' }} variant="h2" color="inherit">
+                {props.posts[0].title}
+              </Typography>
+           </Link>
             <Typography sx={{ color: text, fontWeight: "bold" }} variant="h5" color="inherit">
               {props.posts[0].intro}
             </Typography>
@@ -45,7 +48,7 @@ function Home(props) {
       <Grid container padding={5}>
         {
           props.posts.slice(1, 5).map((post,) => (
-            <Grid display='flex' justifyContent='center' item xl={3} lg={4} md={6} sm={12} xs={12} key={post.slug}>
+            <Grid display='flex' justifyContent='center' marginBottom='10px' item xl={3} lg={4} md={6} sm={12} xs={12} key={post.slug}>
               <PostCard post={post} />
             </Grid>
           ))

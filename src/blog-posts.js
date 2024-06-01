@@ -4,6 +4,7 @@ const getPosts = () => {
             title: "Web Geliştirmeye Başlangıç",
             slug: 'web-baslangic',
             image: '/webdev.webp',
+            imageAvg: 'rgba(73, 46, 45, 0.3)',
             intro: 'Merhaba bu yazımda size web siteleri geliştirmeye nasıl, neden başladığımı ve bu yolda nasıl ilerlediğimi anlatacağım. Eğer siz de web developmenta başlamak isteyip bir türlü başlayamıyorsanız veya başlamak aklınıza hiç gelmediyse bu yazının size yardımcı olabileceğini düşünüyorum.',
             text : require('./posts/yazi.md').default,
             date: '21 Agustos 2020'
@@ -12,6 +13,7 @@ const getPosts = () => {
             title: "HDD ve SSD Nasıl Çalışır",
             slug: 'hdd-ssd-calisma',
             image: '/hddssd.webp',
+            imageAvg: 'rgba(126, 145, 149, 0.3)',
             intro: 'Merhaba bu yazımda sizlere her gün kullandığımız telefon, bilgisayar gibi teknolojik aletlerin depolama birimlerinden olan HDD ve SSD komponentlerinin farkını ve yüzeysel olarak bu depolama birimlerinin çalışma mantığını anlatmaya çalışacağım.',
             text : require('./posts/ssdyazi.md').default,
             date: '9 Ekim 2020'
@@ -20,6 +22,7 @@ const getPosts = () => {
             title: "QR Kodu Nasıl Çalışır",
             slug: 'QRcode-calisma',
             image: '/qr.webp',
+            imageAvg: 'rgba(65, 100, 117, 0.3)',
             intro: 'Merhaba bu yazımda sizlere gunluk hayatta reklam panolarında, broşürlerde ve aklımıza gelebilecek her yerde gördüğümüz QR kodlarının ne olduğunu ve nasıl bir yapıda hazırlandığını anlatacağım.',
             text : require('./posts/qrcode.md').default,
             date: '14 Ocak 2021'
@@ -29,6 +32,7 @@ const getPosts = () => {
             slug: 'pil-calisma',
             intro: 'Merhabalar bu yazımda hayatımızdaki birçok cihazda kullanılan pillerin çalışma mantığını anlatacağım. Bunun yanında pillerin tarihininden, pillerin türlerinden ve günümüzde en çok kullanılan pil türlerinden bahsedeceğim.',
             image: '/battery.png',
+            imageAvg: 'rgba(130, 160, 168, 0.3)',
             text : require('./posts/pil.md').default,
             date: '28 Ocak 2021'
         },
