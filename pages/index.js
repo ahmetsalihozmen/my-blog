@@ -1,111 +1,84 @@
-import React, { Component } from 'react'
-import { Icon } from 'react-icons-kit'
-import { socialGithub, socialLinkedin, socialTwitter, iosPerson, email } from "react-icons-kit/ionicons"
-import Link from 'next/link'
-import fetch from 'isomorphic-unfetch';
-import { Button } from 'reactstrap';
+import React from 'react'
+import { Grid, Typography, useTheme } from '@mui/material';
+import PostCard from '../src/components/PostCard';
+import Link from 'next/link';
+
+const Home = ({posts}) => {
+  const theme = useTheme();
+  const { text, background, grey, orange } = theme.palette;
 
 
-import { useState, useEffect } from 'react';
-
-function Home(props) {
-  const [posts, setPosts] = useState(4);
-
-  const incrementPosts = () => {
-    setPosts(posts + 5);
+  if (!posts || posts.length === 0) {
+    return <Typography variant="h5" color="inherit">No posts available</Typography>;
   }
-
-  const addButton = () => {
-    if (posts < props.posts.length) {
-      return (
-        <Button className="ma4" color="secondary" id="but" onClick={incrementPosts}>Devamını Gör</Button>
-      )
-    }
-    else {
-      return null;
-    }
-  }
-
-
-
-  // console.log(props);
-
   return (
-    <div className='tc'>
+    <Grid className='tc'>
       <title>Ahmet Salih Özmen Blog</title>
-      <h1 className='hero-title'>Ahmet Salih Özmen</h1>
-      <Link className='link' href='about'><Icon className='ma2' size={32} icon={iosPerson} />Hakkımda</Link>
-      <a href="mailto:ahmetsalihozm@outlook.com" target="_blank"><Icon className='ma2' size={32} icon={email} />Email</a>
-      <a href="https://www.linkedin.com/in/ahmet-salih-özmen-30b466169" target="_blank"><Icon className='ma2' size={32} icon={socialLinkedin} />LinkedIn</a> <br />
-      <a href="https://github.com/ahmetsalihozmen" target="_blank"><Icon className='ma2' size={32} icon={socialGithub} />GitHub</a>
-
-      {
-        props.posts.slice(0, posts).map(post => (
-          <div className='post' key={post.slug}>
-            <h2 className="post-title">
-              <Link className='link' href={post.slug}>
-                {post.title}
-              </Link>
-            </h2>
-            <div className='post-text'>
-              <p>
-                {post.intro}
-              </p>
-              <Link className='link' href={post.slug}>
-                <strong>Devamını oku...</strong>
-              </Link>
-            </div>
-            <div className='post-date'>{post.date}</div>
-          </div>
-        ))
-      }
-      {addButton()}
+      <Grid sx={{
+        background: background.primary, height: "900px",
+      }}>
+        <Grid container justifyContent="center" alignItems="center" sx={{ height: "100%" }}>
+          <Grid id='mainpost' item width="60%"
+            sx={{
+              '@keyframes moveTopToCenter': {
+                '0%': {
+                  transform: 'translateY(50%)',
+                  opacity: 0
+                },
+                '100%': {
+                  transform: 'translateY(0)',
+                  opacity: 1
+                }
+              },
+              animation: 'moveTopToCenter 0.8s ease-out',
+            }}
+          >
+           <Link href={posts[0]?.slug}>
+              <Typography sx={{ color: text, fontWeight: "bold", marginBottom: '40px' }} variant="h2" color="inherit">
+                {posts[0]?.title}
+              </Typography>
+           </Link>
+              <Typography sx={{ color: text, fontWeight: "bold" }} variant="h5" color="inherit">
+              {posts[0]?.intro}
+              </Typography>
+            </Grid>
+          </Grid>
+        </Grid>
+        <Grid container padding={5}>
+        {
+          posts?.slice(1, 5).map((post,) => (
+            <Grid display='flex' justifyContent='center' marginBottom='10px' item xl={3} lg={4} md={6} sm={12} xs={12} key={post.slug}>
+              <PostCard post={post} />
+            </Grid>
+          ))
+        }
+        </Grid>
       <style jsx>{`
-      a{
-        color: black;
-      }
-      a:hover{
-        text-decoration:none;
-        color:black;
-      }
-      .hero-title{
-        font-size:48px;
-        margin: 30px;
-      }
-      .post{
-      max-width:650px;
-      margin: auto;
-      }
       .post-date{
       margin-top:10px;
       text-align:right;
-      color: #cccccc;
-      }
+          color: #262626;
+        }
       .post-text{
       text-align:left;
-      }
+        }
       .post-title{
-      margin: 30px;
-      }
-      .about{
-      text-align: right;
-      }
-      .link{
-      color: black !important;
-      }
+          margin: 30px;
+        }
       `}</style>
-    </div>
+    </Grid>
   )
 }
 
 
-export async function getStaticProps({ params }) {
-  const res = await fetch("http://localhost:3000/api/posts");
-  const json = await res.json();
-  json.reverse();
-  return {props: {posts: json, fallback: false} };
+export async function getStaticProps() {
+    const json = require('../src/blog-posts').blogPosts
+    json.reverse();
+    return {
+        props: { posts: json },
+    };
+  
 }
-
 
 export default Home;
 

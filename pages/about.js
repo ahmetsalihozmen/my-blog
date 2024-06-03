@@ -1,32 +1,24 @@
 import React from 'react';
-import {Icon} from'react-icons-kit'
-import {socialGithub,socialLinkedin,socialTwitter,email} from "react-icons-kit/ionicons"
-import ReactMarkdown from 'react-markdown';
+import Markdown from 'react-markdown'
+import { useTheme } from '@mui/material/styles';
+import { Box } from '@mui/material';
 
 const About = ({post}) => {
+    const theme = useTheme();
+    const {background} = theme.palette;
     return(
-        <div className='tc'>
+        <Box sx={{ background: background.primary, height: '100%' }} className='tc'>
             <title>Hakkımda</title>
-            <h1 className='hero-title'><a href='https://ahmetsalihozmen.com'>Ahmet Salih Özmen</a></h1>
-            <a  href="mailto:ahmetsalihozm@outlook.com" target="_blank"><Icon className='ma2' size={32} icon={email}/>Email</a>    
-            <a  href="https://www.linkedin.com/in/ahmet-salih-özmen-30b466169" target="_blank"><Icon className='ma2' size={32} icon={socialLinkedin}/>LinkedIn</a>      
-            <a  href="https://github.com/ahmetsalihozmen" target="_blank"><Icon className='ma2' size={32} icon={socialGithub}/>GitHub</a>
-            <br/>
-            <br/>
             <div className='post-text'>
-            <ReactMarkdown source={post}></ReactMarkdown>
+            <Markdown>{post}</Markdown>
             </div>
-
             <style jsx>
-                {`
-                 .post-text{
-                  text-align:left;
-                  max-width:650px;
-                  margin: auto;
-                }
-                 a:hover , a{
-                    color: black;
-                    text-decoration:none;
+                  {`
+                  .post-text{
+                    text-align:left;
+                    max-width:650px;
+                    margin: auto;
+                    color: ${theme.palette.text};
                   }
                   .hero-title{
                     font-size:48px;
@@ -34,16 +26,16 @@ const About = ({post}) => {
                   }
                 `}
             </style>
-        </div>
+        </Box>
     )
 
 }
 
-About.getInitialProps =async({req,query})=>{
 
-    const md = require('../src/posts/about.md').default
-    return {post: md};
-  };
-  
+export async function getStaticProps() {
+  const md = require('../src/posts/about.md').default
+  return {props: {post: md}};
+}
+
 
 export default About;
