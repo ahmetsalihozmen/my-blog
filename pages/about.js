@@ -1,6 +1,5 @@
 import React from 'react';
 import Markdown from 'react-markdown'
-import Navbar from '../src/components/navbar';
 import { useTheme } from '@mui/material/styles';
 import { Box } from '@mui/material';
 
@@ -33,17 +32,10 @@ const About = ({post}) => {
 }
 
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps() {
   const md = require('../src/posts/about.md').default
   return {props: {post: md}};
 }
 
-// About.getInitialProps =async({req,query})=>{
-
-//     const md = require('../src/posts/about.md').default
-//     console.log(md)
-//     return {post: md};
-//   };
-  
 
 export default About;

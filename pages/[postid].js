@@ -1,9 +1,7 @@
 import React from 'react';
-import fetch from 'isomorphic-unfetch';
 import Markdown from 'react-markdown';
 import { Grid, useTheme } from '@mui/material';
 import rehypeRaw from 'rehype-raw'
- 
 
 const Blogpost = ({ post }) => {
   const theme = useTheme();
@@ -14,13 +12,13 @@ const Blogpost = ({ post }) => {
       <Grid item xs={1}/>
       <Grid item xs={10}>
         <div className='tc text'>
-          <title>{post.title}</title>
+          <title>{post?.title}</title>
           <div className='post'>
-            <h1 className='post-title'>{post.title}</h1>
+            <h1 className='post-title'>{post?.title}</h1>
             <div className='post-text'>
-              <Markdown rehypePlugins={[rehypeRaw]}>{post.text}</Markdown>
+              <Markdown rehypePlugins={[rehypeRaw]}>{post?.text}</Markdown>
             </div>
-            <div className='post-date'>{post.date}</div>
+            <div className='post-date'>{post?.date}</div>
           </div>
 
           <style jsx>{`
@@ -63,28 +61,33 @@ const Blogpost = ({ post }) => {
 };
 
 export async function getStaticPaths() {
-  // Fetch the list of post IDs
-  const res = await fetch('http://localhost:3000/api/posts');
-  const posts = await res.json();
+  const posts = require('../src/blog-posts').blogPosts
 
-  // Generate paths for each post
   const paths = posts.map((post) => ({
     params: { postid: post.slug.toString() },
-  }));
+  }));  
 
   return { paths, fallback: false };
 }
 
 export async function getStaticProps({ params }) {
-  // Fetch data for the specific post
-  const res = await fetch(`http://localhost:3000/api/post/${params.postid}`);
-  const json = await res.json();
+  const getPost = require('../src/blog-posts').getPost
+  const post = getPost(params.postid);
+
+  if (!post){
+    return {
+      props: {
+        post: null
+      }
+    }
+  }
 
   return {
     props: {
-      post: json.post,
+      post,
     },
   };
+   
 }
 
 export default Blogpost;

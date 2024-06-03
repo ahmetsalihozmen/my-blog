@@ -2,7 +2,6 @@ import { Grid, Typography, useTheme } from "@mui/material";
 import Image from "next/image";
 import Link from 'next/link';
 
-
 const ArticlesPage = ({ posts }) => {
     const theme = useTheme();
     const { text, background, orange } = theme.palette;
@@ -52,11 +51,12 @@ const ArticlesPage = ({ posts }) => {
     </Grid>
 }
 
-export async function getStaticProps({ params }) {
-    const res = await fetch("http://localhost:3000/api/posts");
-    const json = await res.json();
-    json.reverse();
-    return { props: { posts: json, fallback: false } };
+export async function getStaticProps() {
+    const posts = require('../src/blog-posts').blogPosts
+    posts.reverse();
+    return {
+        props: { posts: posts },
+    };
 }
 
 export default ArticlesPage;
