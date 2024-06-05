@@ -1,0 +1,8 @@
+## About Me:
+Hello, I am Ahmet Salih Özmen. I was born in 2000 in Karabük. In 2018, I moved to Istanbul to study computer engineering at Yıldız Technical University and graduated in 2022. While I was studying, I worked freelance jobs and interned as a software engineer in various companies for one year. For the past two years, I have been working as a full-time software engineer.
+
+Throughout my education, I was involved in many different fields, but the areas I mostly worked in were full-stack development and robotics. I did my first project on robotics, where we had a drone complete an obstacle course containing dynamic and static obstacles autonomously in a simulation [Link](https://youtu.be/Z4H5DHzqBDs?si=7oIShnK2iZDuPPfz). For my graduation project, I combined the chats we have on Facebook, Instagram, Telegram, and Twitter into a single interface. I developed a web application that could connect to these four different platforms through one interface and send and receive messages from these applications. In my professional work, I have developed and continue to develop various websites and desktop applications using technologies such as React.js, Python, Spring Boot, Angular.js, MongoDB, SQL, and Electron.js.
+
+I started this blog page during my school years to both improve myself by creating my own website and to research and share topics I was curious about with other people. Although there is no general concept for my blog, I mostly try to cover new or old technological topics that interest me. I try to explain my topics in a simpler way rather than being very technical.
+
+For any design or content-related feedback about my blog or for any questions you may want to ask, you can reach me at <ahmetsalihozm@outlook.com>.

@@ -17,6 +17,7 @@ const About = ({post}) => {
                   .post-text{
                     text-align:left;
                     max-width:650px;
+                    padding:30px;
                     margin: auto;
                     color: ${theme.palette.text};
                   }
@@ -33,7 +34,7 @@ const About = ({post}) => {
 
 
 export async function getStaticProps() {
-  const md = require('../src/posts/about.md').default
+  const md = require('../src/posts/about_eng.md').default
   return {props: {post: md}};
 }
 
