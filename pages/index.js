@@ -13,7 +13,7 @@ const Home = ({posts}) => {
   }
   return (
     <Grid className='tc'>
-      <title>Ahmet Salih Özmen Blog</title>
+      <title>Ahmet Salih Ozmen Blog</title>
       <Grid sx={{
         background: background.primary, height: "900px",
       }}>
@@ -34,7 +34,7 @@ const Home = ({posts}) => {
             }}
           >
            <Link href={posts[0]?.slug}>
-              <Typography sx={{ color: text, fontWeight: "bold", marginBottom: '40px' }} variant="h2" color="inherit">
+              <Typography sx={{ color: orange, fontWeight: "bold", marginBottom: '40px' }} variant="h2" color="inherit">
                 {posts[0]?.title}
               </Typography>
            </Link>
@@ -47,7 +47,7 @@ const Home = ({posts}) => {
         <Grid container padding={5}>
         {
           posts?.slice(1, 5).map((post,) => (
-            <Grid display='flex' justifyContent='center' marginBottom='10px' item xl={3} lg={4} md={6} sm={12} xs={12} key={post.slug}>
+            <Grid display='flex' justifyContent='center' container marginBottom='10px' item xl={3} lg={6} sm={12} key={post.slug}>
               <PostCard post={post} />
             </Grid>
           ))

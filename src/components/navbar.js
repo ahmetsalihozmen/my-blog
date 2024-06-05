@@ -1,6 +1,6 @@
 import { Icon } from 'react-icons-kit'
 import { socialGithub, socialLinkedin, email } from "react-icons-kit/ionicons"
-import { Grid, Toolbar, IconButton, Typography, Tabs, Tab, Box, useTheme } from '@mui/material';
+import { Grid, Toolbar, IconButton, Typography, Tabs, Tab, Box, useTheme, useMediaQuery } from '@mui/material';
 import { useRecoilState } from 'recoil';
 import Link from 'next/link';
 import { navValueState } from '../atom';
@@ -63,27 +63,32 @@ const Navbar = () => {
     setNavbarValue(newValue);
   };
 
+  const isLarge = useMediaQuery(theme.breakpoints.up('md'));
+
+  const tabs = <Tabs
+      value={navbarValue}
+      onChange={handleTabChange}
+      aria-label="secondary tabs example"
+    >
+      <Link href="about" style={{ color: '#F56E0F' }}> <Tab value="about" label="About" > </Tab></Link>
+      <Link href="articles" style={{ color: '#F56E0F' }}> <Tab value="articles" label="Articles" > </Tab></Link>
+    </Tabs>
+
   return (
     <Toolbar style={{ background: background.navbarGradient, width: "100%" }} variant="dense">
       <Grid marginY={4} container>
-        <Grid container sx={sx.nameLink} sm={12} md={6}>
+        <Grid container sx={sx.nameLink} sm={12} md={4}>
           <Link href="/" style={{ textDecoration: 'none' }}>
             <Typography style={{ fontWeight: "bold" }} variant="h5" color="inherit">
-              Ahmet Salih Özmen
+              Ahmet Salih Ozmen
             </Typography>
           </Link>
         </Grid>
-        <Grid container sx={sx.pageLinks} sm={12} md={3} lg={3.5} xl={4}>
-          <Tabs
-            value={navbarValue}
-            onChange={handleTabChange}
-            aria-label="secondary tabs example"
-          >
-            <Link href="about" style={{ color: '#F56E0F' }}> <Tab value="about" label="About" > </Tab></Link>
-            <Link href="articles" style={{ color: '#F56E0F' }}> <Tab value="articles" label="Articles" > </Tab></Link>
-          </Tabs>
-        </Grid>
-        <Grid container sx={sx.iconLinks} sm={12} md={3} lg={2.5} xl={2}  >
+        {!isLarge ?<Grid container sx={sx.pageLinks} sm={12}>
+          {tabs}
+        </Grid>: null}
+        <Grid container sx={sx.iconLinks} sm={12} md={8}>
+            {isLarge ? tabs: null}
             <Box>
               <IconButton sx={sx.iconButton}>
                 <a href="mailto:ahmetsalihozm@outlook.com" target="_blank"><Icon className='ma2' size={32} icon={email} /></a>
@@ -99,7 +104,7 @@ const Navbar = () => {
               <a href="https://github.com/ahmetsalihozmen" target="_blank"><Icon className='ma2' size={32} icon={socialGithub} /></a>
             </IconButton>
             </Box>
-      </Grid>
+        </Grid>
     </Grid>
       <style jsx>
         {`
