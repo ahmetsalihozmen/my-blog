@@ -1,0 +1,14 @@
+User-Agent: *
+Allow: /
+Disallow: /*.apng$
+Disallow: /*.avif$
+Disallow: /*.gif$
+Disallow: /*.jpg$
+Disallow: /*.jpeg$
+Disallow: /*.png$
+Disallow: /*.svg$
+Disallow: /*.webp$
+Disallow: /*.bmp$
+Disallow: /*.ico$
+Disallow: /*.tiff$
+Sitemap: https://ahmetsalihozmen.com/sitemap.xml
