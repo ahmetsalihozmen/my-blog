@@ -72,10 +72,11 @@ const Home = ({posts}) => {
 
 
 export async function getStaticProps() {
-    const json = require('../src/blog-posts').blogPosts
-    json.reverse();
+  const posts = require('../src/blog-posts').blogPosts
+  const lastPosts = posts.reverse().slice(0, 5);
+
     return {
-        props: { posts: json },
+        props: { posts: lastPosts },
     };
   
 }

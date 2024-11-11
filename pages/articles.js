@@ -9,7 +9,7 @@ const ArticlesPage = ({ posts }) => {
     return <Grid>
         <Grid sx={{ background: background.primary, height: '100%' }} container display="flex" justifyContent="center" padding={2}>
             {posts.map(post =>
-                <Grid item xs={12}
+                <Grid item key={post.id} xs={12}
                     sx={{
                         display: "flex",
                         justifyContent: "center"
