@@ -2,22 +2,98 @@ import { createTheme } from '@mui/material/styles';
 
 const theme = createTheme({
     palette: {
-        mode: 'light', // Set the mode to light
-        orange: '#f56e0f',
-        dark: '#262626',
-        grey: {
-            light: '#fbfbfb',
-            main: '#e0e0e0',
-            dark: '#1b1b1e',
+        mode: 'dark',
+        primary: {
+            main: '#e8a54b',
+            light: '#f5c77a',
+            dark: '#c4872e',
+        },
+        secondary: {
+            main: '#a1a1aa',
         },
         background: {
-            primary: 'linear-gradient(#fbfbfb , #e0e0e0)', // Adjusted light background gradient
-            navbarGradient: 'linear-gradient(#e0e0e0 , #fbfbfb)', // Adjusted light navbar gradient
+            default: '#0d0d0f',
+            paper: '#1a1a1f',
+            elevated: '#1f1f26',
+            card: '#1f1f26',
         },
-        link: '#f56e0f', // Keeping the same link color
-        text: '#262626', // Adjusted text color for better readability
+        text: {
+            primary: '#f5f5f7',
+            secondary: '#a1a1aa',
+            muted: '#71717a',
+        },
+        accent: '#e8a54b',
+        accentLight: '#f5c77a',
+        accentDark: '#c4872e',
+        border: 'rgba(255, 255, 255, 0.08)',
+        borderHover: 'rgba(255, 255, 255, 0.15)',
     },
-  
+    typography: {
+        fontFamily: "'Sora', -apple-system, BlinkMacSystemFont, sans-serif",
+        h1: {
+            fontFamily: "'Playfair Display', Georgia, serif",
+            fontWeight: 600,
+            letterSpacing: '-0.02em',
+        },
+        h2: {
+            fontFamily: "'Playfair Display', Georgia, serif",
+            fontWeight: 600,
+            letterSpacing: '-0.02em',
+        },
+        h3: {
+            fontFamily: "'Playfair Display', Georgia, serif",
+            fontWeight: 600,
+            letterSpacing: '-0.02em',
+        },
+        h4: {
+            fontFamily: "'Playfair Display', Georgia, serif",
+            fontWeight: 500,
+        },
+        h5: {
+            fontFamily: "'Playfair Display', Georgia, serif",
+            fontWeight: 500,
+        },
+        h6: {
+            fontFamily: "'Playfair Display', Georgia, serif",
+            fontWeight: 500,
+        },
+        body1: {
+            lineHeight: 1.8,
+        },
+        body2: {
+            lineHeight: 1.7,
+            color: '#a1a1aa',
+        },
+    },
+    shape: {
+        borderRadius: 12,
+    },
+    components: {
+        MuiCssBaseline: {
+            styleOverrides: {
+                body: {
+                    backgroundColor: '#0d0d0f',
+                },
+            },
+        },
+        MuiButton: {
+            styleOverrides: {
+                root: {
+                    textTransform: 'none',
+                    fontWeight: 500,
+                    borderRadius: 9999,
+                },
+            },
+        },
+        MuiPaper: {
+            styleOverrides: {
+                root: {
+                    backgroundImage: 'none',
+                    backgroundColor: '#1a1a1f',
+                },
+            },
+        },
+    },
 });
 
 export default theme;
