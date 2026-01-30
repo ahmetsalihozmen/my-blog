@@ -3,12 +3,16 @@ import { Box, Container, Typography } from '@mui/material';
 import Markdown from 'react-markdown';
 import Head from 'next/head';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../src/context/LanguageContext';
 
-const About = ({ post }) => {
+const About = ({ postEn, postTr }) => {
+    const { language, t } = useLanguage();
+    const post = language === 'tr' ? postTr : postEn;
+
     return (
         <>
             <Head>
-                <title>About | Ahmet Salih Özmen</title>
+                <title>{t('about')} | Ahmet Salih Özmen</title>
                 <meta name="description" content="About Ahmet Salih Özmen - Software Developer and Tech Enthusiast" />
             </Head>
 
@@ -47,7 +51,7 @@ const About = ({ post }) => {
                                     mb: 2,
                                 }}
                             >
-                                About Me
+                                {t('aboutMe')}
                             </Typography>
                             <Box
                                 sx={{
@@ -63,6 +67,7 @@ const About = ({ post }) => {
 
                     {/* Content */}
                     <motion.div
+                        key={language}
                         initial={{ opacity: 0, y: 40 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
@@ -160,7 +165,7 @@ const About = ({ post }) => {
                                 fontSize: '0.85rem',
                             }}
                         >
-                            © {new Date().getFullYear()} Ahmet Salih Özmen. All rights reserved.
+                            {t('copyright')}
                         </Typography>
                     </Container>
                 </Box>
@@ -170,8 +175,9 @@ const About = ({ post }) => {
 };
 
 export async function getStaticProps() {
-    const md = require('../src/posts/about_eng.md').default;
-    return { props: { post: md } };
+    const postEn = require('../src/posts/about_eng.md').default;
+    const postTr = require('../src/posts/about_tr.md').default;
+    return { props: { postEn, postTr } };
 }
 
 export default About;

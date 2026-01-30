@@ -7,11 +7,13 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
 import { navValueState } from '../atom';
+import { useLanguage } from '../context/LanguageContext';
 
 const Navbar = () => {
   const [navbarValue, setNavbarValue] = useRecoilState(navValueState);
   const [scrolled, setScrolled] = useState(false);
   const router = useRouter();
+  const { language, toggleLanguage, t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,9 +24,9 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { href: '/', label: 'Home', value: 'home' },
-    { href: '/articles', label: 'Articles', value: 'articles' },
-    { href: '/about', label: 'About', value: 'about' },
+    { href: '/', label: t('home'), value: 'home' },
+    { href: '/articles', label: t('articles'), value: 'articles' },
+    { href: '/about', label: t('about'), value: 'about' },
   ];
 
   const socialLinks = [
@@ -151,8 +153,74 @@ const Navbar = () => {
             ))}
           </Box>
 
-          {/* Social Links */}
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+          {/* Language Switcher & Social Links */}
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+            {/* Language Switcher */}
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Box
+                onClick={toggleLanguage}
+                sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 0.5,
+                  px: 1.5,
+                  py: 0.75,
+                  borderRadius: '9999px',
+                  border: '1px solid rgba(255, 255, 255, 0.1)',
+                  cursor: 'pointer',
+                  transition: 'all 0.2s ease',
+                  background: 'rgba(255, 255, 255, 0.03)',
+                  '&:hover': {
+                    borderColor: '#e8a54b',
+                    background: 'rgba(232, 165, 75, 0.1)',
+                  },
+                }}
+              >
+                <Box
+                  sx={{
+                    width: 18,
+                    height: 18,
+                    borderRadius: '50%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontSize: '10px',
+                    fontWeight: 700,
+                    background: language === 'en' 
+                      ? 'linear-gradient(135deg, #e8a54b, #f5c77a)' 
+                      : 'transparent',
+                    color: language === 'en' ? '#0d0d0f' : '#71717a',
+                    transition: 'all 0.2s ease',
+                  }}
+                >
+                  EN
+                </Box>
+                <Box
+                  sx={{
+                    width: 18,
+                    height: 18,
+                    borderRadius: '50%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontSize: '10px',
+                    fontWeight: 700,
+                    background: language === 'tr' 
+                      ? 'linear-gradient(135deg, #e8a54b, #f5c77a)' 
+                      : 'transparent',
+                    color: language === 'tr' ? '#0d0d0f' : '#71717a',
+                    transition: 'all 0.2s ease',
+                  }}
+                >
+                  TR
+                </Box>
+              </Box>
+            </motion.div>
+
+            {/* Social Links */}
             {socialLinks.map((social, index) => (
               <motion.div
                 key={social.label}
@@ -223,6 +291,21 @@ const Navbar = () => {
                 </Box>
               </Link>
             ))}
+            {/* Mobile Language Switcher */}
+            <Box
+              onClick={toggleLanguage}
+              sx={{
+                px: 1.5,
+                py: 1,
+                borderRadius: '9999px',
+                fontSize: '0.75rem',
+                fontWeight: 600,
+                color: '#e8a54b',
+                cursor: 'pointer',
+              }}
+            >
+              {language.toUpperCase()}
+            </Box>
           </Box>
         </Box>
       </Container>

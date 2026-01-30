@@ -6,9 +6,16 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../src/context/LanguageContext';
+import { getLocalizedPost } from '../src/blog-posts';
 
 const Blogpost = ({ post }) => {
-    if (!post) {
+    const { t, language } = useLanguage();
+    
+    // Localize the post
+    const localizedPost = getLocalizedPost(post, language);
+
+    if (!localizedPost) {
         return (
             <Box sx={{ minHeight: '100vh', pt: 20, textAlign: 'center' }}>
                 <Typography variant="h4" color="#f5f5f7">
@@ -18,11 +25,11 @@ const Blogpost = ({ post }) => {
         );
     }
 
-    return (
+  return (
         <>
             <Head>
-                <title>{post.title} | Ahmet Salih Özmen</title>
-                <meta name="description" content={post.intro} />
+                <title>{localizedPost.title} | Ahmet Salih Özmen</title>
+                <meta name="description" content={localizedPost.intro} />
             </Head>
 
             <Box sx={{ minHeight: '100vh', pt: { xs: 10, md: 12 } }}>
@@ -74,7 +81,7 @@ const Blogpost = ({ post }) => {
                                     }}
                                 >
                                     <span>←</span>
-                                    Back to articles
+                                    {t('backToArticles')}
                                 </Box>
                             </Link>
 
@@ -89,7 +96,7 @@ const Blogpost = ({ post }) => {
                                     mb: 2,
                                 }}
                             >
-                                {post.date}
+                                {localizedPost.date}
                             </Typography>
 
                             {/* Title */}
@@ -105,11 +112,11 @@ const Blogpost = ({ post }) => {
                                     mb: 3,
                                 }}
                             >
-                                {post.title}
+                                {localizedPost.title}
                             </Typography>
 
                             {/* Intro */}
-                            {post.intro && (
+                            {localizedPost.intro && (
                                 <Typography
                                     sx={{
                                         fontSize: { xs: '1.1rem', md: '1.25rem' },
@@ -118,7 +125,7 @@ const Blogpost = ({ post }) => {
                                         fontStyle: 'italic',
                                     }}
                                 >
-                                    {post.intro}
+                                    {localizedPost.intro}
                                 </Typography>
                             )}
                         </motion.div>
@@ -126,7 +133,7 @@ const Blogpost = ({ post }) => {
                 </Box>
 
                 {/* Featured Image */}
-                {post.image && (
+                {localizedPost.image && (
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -145,8 +152,8 @@ const Blogpost = ({ post }) => {
                                 }}
                             >
                                 <Image
-                                    src={post.image}
-                                    alt={post.title}
+                                    src={localizedPost.image}
+                                    alt={localizedPost.title}
                                     fill
                                     style={{ objectFit: 'cover' }}
                                     priority
@@ -276,7 +283,7 @@ const Blogpost = ({ post }) => {
                                 },
                             }}
                         >
-                            <Markdown rehypePlugins={[rehypeRaw]}>{post.text}</Markdown>
+                            <Markdown rehypePlugins={[rehypeRaw]}>{localizedPost.text}</Markdown>
                         </Box>
 
                         {/* Article Footer */}
@@ -309,7 +316,7 @@ const Blogpost = ({ post }) => {
                                     }}
                                 >
                                     <span>←</span>
-                                    Back to all articles
+                                    {t('backToAllArticles')}
                                 </Box>
                             </Link>
                         </Box>
@@ -331,28 +338,29 @@ const Blogpost = ({ post }) => {
                                 fontSize: '0.85rem',
                             }}
                         >
-                            © {new Date().getFullYear()} Ahmet Salih Özmen. All rights reserved.
+                            {t('copyright')}
                         </Typography>
                     </Container>
                 </Box>
             </Box>
         </>
-    );
+  );
 };
 
 export async function getStaticPaths() {
     const posts = require('../src/blog-posts').blogPosts;
 
-    const paths = posts.map((post) => ({
-        params: { postid: post.slug.toString() },
-    }));
+  const paths = posts.map((post) => ({
+    params: { postid: post.slug.toString() },
+  }));  
 
-    return { paths, fallback: false };
+  return { paths, fallback: false };
 }
 
 export async function getStaticProps({ params }) {
     const getPost = require('../src/blog-posts').getPost;
-    const post = getPost(params.postid);
+    // Get post with English as default (will be localized on client side)
+    const post = getPost(params.postid, 'en');
 
     if (!post) {
         return {

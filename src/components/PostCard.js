@@ -3,9 +3,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function PostCard({ post, index = 0 }) {
     const { title, intro, date, slug, image } = post;
+    const { t } = useLanguage();
 
     return (
         <motion.div
@@ -172,7 +174,7 @@ export default function PostCard({ post, index = 0 }) {
                                     transition: 'all 0.3s ease',
                                 }}
                             >
-                                Read article
+                                {t('readMore')}
                             </Typography>
                             <Box
                                 className="read-indicator"

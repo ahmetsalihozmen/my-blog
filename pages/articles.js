@@ -4,12 +4,19 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Head from 'next/head';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../src/context/LanguageContext';
+import { getLocalizedPost } from '../src/blog-posts';
 
 const ArticlesPage = ({ posts }) => {
+    const { t, language } = useLanguage();
+    
+    // Localize all posts
+    const localizedPosts = posts.map(post => getLocalizedPost(post, language));
+
     return (
         <>
             <Head>
-                <title>Articles | Ahmet Salih Özmen</title>
+                <title>{t('articles')} | Ahmet Salih Özmen</title>
                 <meta name="description" content="All articles about technology, science, and programming" />
             </Head>
 
@@ -32,7 +39,7 @@ const ArticlesPage = ({ posts }) => {
                                     mb: 2,
                                 }}
                             >
-                                All Articles
+                                {t('allArticles')}
                             </Typography>
                             <Typography
                                 sx={{
@@ -42,14 +49,14 @@ const ArticlesPage = ({ posts }) => {
                                     mx: 'auto',
                                 }}
                             >
-                                Exploring technology, science, and the fascinating world of computing
+                                {t('articlesDescription')}
                             </Typography>
                         </Box>
                     </motion.div>
 
                     {/* Articles List */}
                     <Box sx={{ maxWidth: '800px', mx: 'auto', pb: 8 }}>
-                        {posts.map((post, index) => (
+                        {localizedPosts.map((post, index) => (
                             <motion.div
                                 key={post.slug}
                                 initial={{ opacity: 0, y: 30 }}
@@ -180,7 +187,7 @@ const ArticlesPage = ({ posts }) => {
                                                     transition: 'all 0.3s ease',
                                                 }}
                                             >
-                                                Read article
+                                                {t('readMore')}
                                                 <span>→</span>
                                             </Box>
                                         </Box>
@@ -188,7 +195,7 @@ const ArticlesPage = ({ posts }) => {
                                 </Link>
 
                                 {/* Divider */}
-                                {index < posts.length - 1 && (
+                                {index < localizedPosts.length - 1 && (
                                     <Box
                                         sx={{
                                             height: '1px',
@@ -217,7 +224,7 @@ const ArticlesPage = ({ posts }) => {
                                 fontSize: '0.85rem',
                             }}
                         >
-                            © {new Date().getFullYear()} Ahmet Salih Özmen. All rights reserved.
+                            {t('copyright')}
                         </Typography>
                     </Container>
                 </Box>
@@ -230,7 +237,7 @@ export async function getStaticProps() {
     const posts = require('../src/blog-posts').blogPosts;
     const sortedPosts = [...posts].reverse();
     return {
-        props: { posts: sortedPosts },
+        props: { posts: sortedPosts }, // Will be localized on client side
     };
 }
 

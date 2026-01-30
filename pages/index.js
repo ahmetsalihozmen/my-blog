@@ -4,10 +4,16 @@ import PostCard from '../src/components/PostCard';
 import Link from 'next/link';
 import Head from 'next/head';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../src/context/LanguageContext';
+import { getLocalizedPost } from '../src/blog-posts';
 
 const Home = ({ posts }) => {
-  const featuredPost = posts[0];
-  const recentPosts = posts.slice(1, 5);
+  const { t, language } = useLanguage();
+  
+  // Localize all posts
+  const localizedPosts = posts.map(post => getLocalizedPost(post, language));
+  const featuredPost = localizedPosts[0];
+  const recentPosts = localizedPosts.slice(1, 5);
 
   return (
     <>
@@ -98,7 +104,7 @@ const Home = ({ posts }) => {
                         letterSpacing: '0.05em',
                       }}
                     >
-                      Latest Article
+                      {t('latestArticle')}
                     </Typography>
                   </Box>
 
@@ -165,7 +171,7 @@ const Home = ({ posts }) => {
                           },
                         }}
                       >
-                        Read Article
+                        {t('readArticle')}
                         <span style={{ fontSize: '1.2rem' }}>→</span>
                       </Box>
                     </motion.div>
@@ -248,7 +254,7 @@ const Home = ({ posts }) => {
                           textTransform: 'uppercase',
                         }}
                       >
-                        Articles
+                        {t('articles')}
                       </Typography>
                     </Box>
                   </Box>
@@ -289,10 +295,10 @@ const Home = ({ posts }) => {
                       mb: 0.5,
                     }}
                   >
-                    Recent Articles
+                    {t('recentArticles')}
                   </Typography>
                   <Typography sx={{ color: '#71717a', fontSize: '0.95rem' }}>
-                    Explore the latest writings
+                    {t('exploreLatest')}
                   </Typography>
                 </Box>
                 <Link href="/articles" style={{ textDecoration: 'none' }}>
@@ -315,7 +321,7 @@ const Home = ({ posts }) => {
                       },
                     }}
                   >
-                    View all
+                    {t('viewAll')}
                     <span>→</span>
                   </Box>
                 </Link>
@@ -348,7 +354,7 @@ const Home = ({ posts }) => {
                     fontWeight: 500,
                   }}
                 >
-                  View all articles
+                  {t('viewAllArticles')}
                   <span>→</span>
                 </Box>
               </Link>
@@ -371,7 +377,7 @@ const Home = ({ posts }) => {
                 fontSize: '0.85rem',
               }}
             >
-              © {new Date().getFullYear()} Ahmet Salih Özmen. All rights reserved.
+              {t('copyright')}
             </Typography>
           </Container>
         </Box>
@@ -385,7 +391,7 @@ export async function getStaticProps() {
   const lastPosts = [...posts].reverse().slice(0, 5);
 
   return {
-    props: { posts: lastPosts },
+    props: { posts: lastPosts }, // Will be localized on client side
   };
 }
 
